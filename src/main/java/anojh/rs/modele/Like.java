@@ -5,27 +5,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Entity
-@Table(name = "matchs")
+@Table(name = "likes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Match {
+public class Like {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "compte_liked_1_id")
-    private Compte compteLiked1;
+    @JoinColumn(name = "expediteur_id")
+    private Compte expediteur;
 
     @ManyToOne
-    @JoinColumn(name = "compte_liked_2_id")
-    private Compte compteLiked2;
+    @JoinColumn(name = "destinataire_id")
+    private Compte destinataire;
 
-    private LocalDateTime dateMatch;
+    private boolean estLike;
 
+    @ManyToOne
+    @JoinColumn(name = "match_id")
+    private Match match;
 }
