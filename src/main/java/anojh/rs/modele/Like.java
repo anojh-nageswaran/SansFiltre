@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "likes")
 @Data
@@ -26,6 +28,8 @@ public class Like {
     private Compte destinataire;
 
     private boolean estLike;
+
+    private LocalDateTime dateLike;
 
     @ManyToOne
     @JoinColumn(name = "match_id")
