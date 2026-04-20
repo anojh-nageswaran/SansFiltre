@@ -26,7 +26,7 @@ public class LikeService {
         this.compteRepository = compteRepository;
     }
 
-    public Like liker(Long expediteurId, Long destinataireId, boolean estLike) {
+    public Like liker(Long expediteurId, Long destinataireId, boolean aime) {
 
         // On récupère les comptes depuis la BDD
         Compte expediteur = compteRepository.findById(expediteurId)
@@ -45,14 +45,14 @@ public class LikeService {
         Like like = new Like();
         like.setExpediteur(expediteur);
         like.setDestinataire(destinataire);
-        like.setEstLike(estLike);
+        like.setAime(aime);
         like.setDateLike(LocalDateTime.now());
         likeRepository.save(like);
 
         // Vérification d'un potentiel match
-        if (estLike) {
+        if (aime) {
             boolean likeMutuel = likeRepository
-                    .existsByExpediteurAndDestinataireAndEstLike(destinataire, expediteur, true);
+                    .existsByExpediteurAndDestinataireAndAime(destinataire, expediteur, true);
 
             if (likeMutuel) {
                 Match match = new Match();

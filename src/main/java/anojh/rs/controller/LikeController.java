@@ -16,12 +16,12 @@ public class LikeController {
 
     private final LikeService likeService;
 
-    @PostMapping("/{expediteurId}/{destinataireId}/{estLike}")
+    @PostMapping("/{expediteurId}/{destinataireId}/{aime}")
     public ResponseEntity<Like> liker(
             @PathVariable Long expediteurId,
             @PathVariable Long destinataireId,
-            @PathVariable boolean estLike) {
-        Like nouveauLike = likeService.liker(expediteurId, destinataireId, estLike);
+            @PathVariable boolean aime) {
+        Like nouveauLike = likeService.liker(expediteurId, destinataireId, aime);
         return ResponseEntity.status(201).body(nouveauLike);
     }
 

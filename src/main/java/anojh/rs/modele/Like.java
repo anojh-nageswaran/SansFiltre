@@ -27,7 +27,7 @@ public class Like {
     @JoinColumn(name = "destinataire_id")
     private Compte destinataire;
 
-    private boolean estLike;
+    private boolean aime;
 
     private LocalDateTime dateLike;
 

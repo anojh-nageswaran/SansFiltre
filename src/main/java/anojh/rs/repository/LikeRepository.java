@@ -11,7 +11,7 @@ import java.util.List;
 public interface  LikeRepository extends JpaRepository<Like, Long> {
     boolean existsByExpediteurAndDestinataire(Compte expediteur, Compte destinataire);
 
-    boolean existsByExpediteurAndDestinataireAndEstLike(Compte expediteur, Compte destinataire, boolean estLike);
+    boolean existsByExpediteurAndDestinataireAndAime(Compte expediteur, Compte destinataire, boolean aime);
 
     List<Like> findByDestinataire(Compte destinataire);
 
