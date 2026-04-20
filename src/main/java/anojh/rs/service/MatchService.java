@@ -2,10 +2,8 @@ package anojh.rs.service;
 
 import anojh.rs.modele.Compte;
 import anojh.rs.modele.Match;
-import anojh.rs.repository.LikeRepository;
 import anojh.rs.repository.MatchRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
