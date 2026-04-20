@@ -5,6 +5,7 @@ import anojh.rs.modele.Match;
 import anojh.rs.repository.LikeRepository;
 import anojh.rs.repository.MatchRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,11 +20,11 @@ public class MatchService {
     }
 
     public List<Match> getMatchs(Compte compte) {
-        return matchRepository.findByCompteMatch(compte, compte);
+        return matchRepository.findByCompteLiked1OrCompteLiked2(compte, compte);
     }
 
-    public Match verification(Compte compte1, Compte compte2) {
-        return matchRepository.existsByMatch(compte1, compte2, compte2, compte1);
+    public boolean verification(Long compte1Id,  Long compte2Id) {
+        return matchRepository.existsByCompteLiked1AndCompteLiked2OrCompteLiked2AndCompteLiked1(compte1Id, compte2Id, compte2Id, compte1Id);
     }
 
     public Optional<Match> getMatchById(Long id) {

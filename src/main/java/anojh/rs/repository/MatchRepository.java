@@ -10,7 +10,9 @@ import java.util.List;
 @Repository
 public interface MatchRepository extends JpaRepository<Match, Long> {
 
-    List<Match> findByCompteMatch(Compte compte, Compte compte1);
+    List<Match> findByCompteLiked1OrCompteLiked2(Compte compte1, Compte compte2);
 
-    Match existsByMatch(Compte compte1, Compte compte2, Compte compte21, Compte compte11);
+    boolean existsByCompteLiked1AndCompteLiked2OrCompteLiked2AndCompteLiked1(
+            Long compteLiked1, Long compteLiked2,
+            Long compteLiked21, Long compteLiked11);
 }

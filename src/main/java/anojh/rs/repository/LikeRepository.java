@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LikeRepository extends JpaRepository<Like, Long> {
+public interface  LikeRepository extends JpaRepository<Like, Long> {
     boolean existsByExpediteurAndDestinataire(Compte expediteur, Compte destinataire);
 
     boolean existsByExpediteurAndDestinataireAndEstLike(Compte expediteur, Compte destinataire, boolean estLike);
