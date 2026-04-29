@@ -23,7 +23,15 @@ public class Message {
     private LocalDateTime dateEnvoi;
     private boolean lu;
 
-    @ManyToOne Compte expediteur;
-    @ManyToOne Compte destinataire;
-    @ManyToOne Match match;
+    @ManyToOne
+    @JoinColumn(name = "expediteur_id")
+    private Compte expediteur;
+
+    @ManyToOne
+    @JoinColumn(name = "destinataire_id")
+    private Compte destinataire;
+
+    @ManyToOne
+    @JoinColumn(name = "match_id")
+    private Match match;
 }

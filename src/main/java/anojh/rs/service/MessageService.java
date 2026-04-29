@@ -40,6 +40,7 @@ public class MessageService {
         message.setExpediteur(expediteur);
         message.setDateEnvoi(LocalDateTime.now());
         message.setLu(false);
+        message.setContenu(contenu);
         return messageRepository.save(message);
     }
 

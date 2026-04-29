@@ -13,6 +13,6 @@ public interface MatchRepository extends JpaRepository<Match, Long> {
     List<Match> findByCompteLiked1OrCompteLiked2(Compte compte1, Compte compte2);
 
     boolean existsByCompteLiked1AndCompteLiked2OrCompteLiked2AndCompteLiked1(
-            Long compteLiked1, Long compteLiked2,
-            Long compteLiked21, Long compteLiked11);
+            Compte compteLiked1, Compte compteLiked2,
+            Compte compteLiked21, Compte compteLiked11);
 }

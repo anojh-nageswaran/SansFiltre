@@ -16,9 +16,9 @@ public class MatchController {
 
     private final MatchService matchService;
 
-    @GetMapping("/read")
-    public List<Match> getMatchs(@RequestBody Compte compte) {
-        return matchService.getMatchs(compte);
+    @GetMapping("/read/{compteId}")
+    public List<Match> getMatchs(@PathVariable Long compteId) {
+        return matchService.getMatchs(compteId);
     }
 
     @GetMapping("/verifie/{compte1Id}/{compte2Id}")
